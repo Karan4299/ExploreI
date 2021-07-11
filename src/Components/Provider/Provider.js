@@ -4,6 +4,8 @@ import img1 from '../../images/pic1.jpg';
 import img2 from '../../images/pic2.jpg';
 import img3 from '../../images/pic3.jpg';
 import img4 from  '../../images/pic4.jpg';
+import img5 from '../../images/pic5.jpg';
+import img6 from '../../images/pic6.jpg';
 
 const MainProvider = ({children})=>{
     
@@ -39,9 +41,27 @@ const MainProvider = ({children})=>{
         },
         {
             id:3,
-            Name:"Coorg",
-            Location:"Karnataka",
+            Name:"Taj Mahal",
+            Location:"Agra",
             image:img4,
+            Description:`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima iure voluptas,
+            nisi temporibus velit sunt magni corrupti accusantium quis! Aspernatur ad, nemo deserunt 
+            incidunt cum ipsa porro aliquam dolorem.`,
+        },
+        {
+            id:4,
+            Name:"Lotus Temple",
+            Location:"delhi",
+            image:img5,
+            Description:`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima iure voluptas,
+            nisi temporibus velit sunt magni corrupti accusantium quis! Aspernatur ad, nemo deserunt 
+            incidunt cum ipsa porro aliquam dolorem.`,
+        },
+        {
+            id:5,
+            Name:"Tirupati Tirumala",
+            Location:"Kerala",
+            image:img6,
             Description:`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima iure voluptas,
             nisi temporibus velit sunt magni corrupti accusantium quis! Aspernatur ad, nemo deserunt 
             incidunt cum ipsa porro aliquam dolorem.`,
@@ -50,7 +70,7 @@ const MainProvider = ({children})=>{
 
     const changeActive = () => {
         // console.log("chaneac")
-        const nextact = (active+1)%4;
+        const nextact = (active+1)%6;
         setActive(nextact);
     }
 

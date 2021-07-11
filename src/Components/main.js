@@ -4,7 +4,7 @@ import {MainFrame,MainBack,Card,MainCntnt,Slide,SlideBlock,
     BlankSpace,Detail,Test,Hbar,State,Name,Descrip,Tags} from './mainStyle';
 import MainContent from './Provider/providerContext';
 import gsap from 'gsap';
-
+import right_arrow from '../images/arrow-right.png';
 
 const Main = () => {
     const db = useContext(MainContent); 
@@ -20,7 +20,7 @@ const Main = () => {
         first = true;
         // console.log("hhh")
         gsap.from(".drawUp",{delay:.2,duration:.3,y:30,opacity:0,stagger:.1});
-        gsap.to(".drawUpB",{delay:.6,duration:1,opacity:1})
+        // gsap.to(".drawUpB",{delay:.6,duration:1,opacity:1})
     },[]);
 
     useEffect(()=>{
@@ -29,9 +29,11 @@ const Main = () => {
         tc.to(".crd:first-child",{duration:0,opacity:1});
         console.log(first)
         first?
-        gsap.from(".crd",{delay:.5,duration:.8,x:220,stagger:.05,ease:"expo.inOut"}):
-        gsap.from(".crd",{duration:.8,x:220,stagger:.05,ease:"expo.inOut"});
+        gsap.from(".crd",{delay:.5,duration:.8,x:"120%",stagger:.05,ease:"expo.inOut"}):
+        gsap.from(".crd",{duration:.8,x:"111%",stagger:.05,ease:"expo.inOut"});
         // gsap.from(".drawUpB",{delay:2,duration:1,opacity:0})
+        
+
     });
 
 
@@ -44,17 +46,20 @@ const Main = () => {
         // tc.to(".crd:first-child",{duration:0,opacity:0});
         var tc=gsap.timeline();
         var tl = gsap.timeline();
+        var tm = gsap.timeline();
         tl.to(card,{duration:0,opacity:1})
         tc.to(".crd:first-child",{duration:0,opacity:0});
-        gsap.from(".drawUp",{delay:1.05,duration:.1,opacity:0,y:20,stagger:.1});
-        gsap.to(".drawUpB",{delay:.5,duration:0,opacity:0});
+        tm.to(".drawUp",{duration:.3,opacity:0,y:-20,stagger:.1});
+        tm.to(".drawUp",{duration:0,opacity:0,y:40});
+        tm.to(".drawUp",{delay:.25,duration:.1,opacity:1,y:20,stagger:.1});
+        // gsap.to(".drawUpB",{delay:.8,duration:0,opacity:1});
 
         tl.to(card,{duration:.8, width:'100vw',height:'100vh',top:0,left:0,ease:"expo.inOut",borderRadius:0});
-        gsap.to(".drawUpB",{delay:1.5,duration:0,opacity:1})
+        // gsap.to(".drawUpB",{delay:1.8,duration:0,opacity:1})
         tl.to(mainback,{duration:0,backgroundImage:`url(${loc[(active+1)%loc.length].image})`})
         // tl.to(card,{duration:0.1,opacity:0})
         tl.to(card,{duration:.2,opacity:0,borderRadius:10})
-        tl.to(card,{duration:0,width:200,height:287,marginBottom:15,marginRight:15,top:'50%',left:'45%'})
+        tl.to(card,{duration:0,width:"14%",height:"40%",marginBottom:15,marginRight:15,top:'45%',left:'45%'})
         
 
         setTimeout(()=>{
@@ -88,7 +93,7 @@ const Main = () => {
                 
                 <Card  ref={el=>(card=el)} color="#F0F0F0" bcimage={loc[(active+1)%loc.length].image}> 
                 </Card> 
-                <Test>
+                {/* <Test>
                     <Hbar className="drawUpB" style={{opacity:0}}></Hbar>
                     <State className="drawUpB" style={{opacity:0}}> 
                         <p>{loc[active].Location}</p>
@@ -105,7 +110,7 @@ const Main = () => {
                         <p className="save"><i class="fas fa-bookmark"></i></p>
                         <p>Discover Location</p>
                     </Tags>
-                </Test>
+                </Test> */}
             </MainBack>
             <MainCntnt>
                 <NavBlank></NavBlank>
@@ -127,12 +132,6 @@ const Main = () => {
                         <p className="save"><i class="fas fa-bookmark"></i></p>
                         <p>Discover Location</p>
                     </Tags>
-                    {/* <div style={{backgroundColor:"blue"}}></div> */}
-                    {/* <div style={{backgroundColor:"blue"}}></div> */}
-
-                    {/* <div style={{backgroundColor:"blue"}}></div> */}
-                    {/* <div style={{backgroundColor:"green"}}></div> */}
-                    {/* <div style={{backgroundColor:"yellow"}}></div> */}
                 </Detail>
                 <Slide>
                     <SlideBlock >

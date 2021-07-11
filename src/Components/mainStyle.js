@@ -2,14 +2,14 @@ import styled from "styled-components";
 import img1 from '../images/pic1.jpg';
 
 export const MainFrame = styled.div`
-    min-height:100vh;
-    min-width:100vw;
+    height:100vh;
+    width:100vw;
     // background-color:red;
     position:relative;
     font-size: 10px;
 `;
 export const MainBack = styled.div`
-    position:absolute;
+    position:relative;
     height:100%;
     width:100%;
     // background-color:red;
@@ -104,14 +104,14 @@ export const NavBar = styled.div`
 
 export const Card = styled.div`
     position:absolute;
-    width:200px;
-    height:287px;
+    width:14%;
+    height:40%;
     border-radius:15px;
     background-image:url(${props=>props.bcimage});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    top:50%;
+    top:45%;
     left:45%;
     z-index: 2;
     opacity: 0;
@@ -123,8 +123,8 @@ export const Card = styled.div`
 `;
 
 export const MainCntnt = styled.div`
-    min-height:100vh;
-    min-width:100vw;
+    height:100%;
+    width:100%;
     position:absolute;
     bottom: 0;
     display: grid;
@@ -153,10 +153,11 @@ export const Detail = styled.div`
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 5% 10% auto 20% 10%;
+    grid-template-rows: 5% 5% 55% 15% 20%;
     padding:0px 9%;
     /* background-color: rosybrown; */
     overflow: hidden;
+    justify-content: flex-start;
     /* width:100%; */
 `;
 
@@ -166,14 +167,17 @@ export const Hbar = styled.div`
     background-color: white;
     bottom: 0;
     align-self: flex-end;
+    /* background-color: green; */
     
 `;
 
 export const State = styled.div`
     /* align-self: flex-end; */
-    justify-self: flex-start;
+    
     /* background-color: wheat; */
     display: flex;
+    justify-self: flex-start;
+
     p{
         font-size: 1.5em;
         margin:0;
@@ -188,13 +192,15 @@ export const State = styled.div`
 export const Name  =styled.div`
     justify-self: flex-start;
     display: flex;
+    margin-top:5%;
     flex-direction: column;
     justify-content: space-around;
-    
+    /* background-color: greenyellow; */
     /* font-weight: bold; */
     /* color:white; */
     text-transform: uppercase;
     overflow: hidden;
+    clear: both;
     
 
     p{
@@ -204,6 +210,15 @@ export const Name  =styled.div`
         color:white;
         margin:0;
         padding:0;
+        line-height: 25%;
+
+        @media (max-height: 820px) {
+            font-size: 10em;
+        }
+
+        @media (max-width:927px){
+            font-size: 5em;
+        }
     }
 `;
 
@@ -212,9 +227,11 @@ export const Descrip = styled.div`
     display: flex;
     align-self: center;
     overflow: hidden;
+    /* background-color: grey; */
 
     p{
-        color:rgba(256,256,256,.4);
+        font-size: 1.2em;
+        color:rgba(256,256,256,.7);
     }
 `;
 
@@ -225,6 +242,7 @@ export const Tags = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    /* background-color: indianred; */
 
     p{
         color:white;
@@ -263,17 +281,17 @@ export const Slide = styled.div`
 `;
 
 export const SlideBlock = styled.div`
-    height: 287px;
+    height: 77%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     border-radius:15px;
     /* background-color: rgba(256,256,256,.2); */
 `;
 
 export const SlideCard = styled.div`
 /* position: relative; */
-    min-width: 200px;
+    min-width: 25.6%;
     height: 100%;
     /* background-color: pink; */
     background-image: url(${props=>props.bcimg});
@@ -283,6 +301,7 @@ export const SlideCard = styled.div`
     margin-right: 20px;
     box-shadow: 5px 5px 8px 3px rgba(0,0,0,0.5);
     border-radius:10px;
+    /* opacity: .5; */
     /* left:100; */
 `;
 
@@ -316,7 +335,7 @@ export const Btn = styled.div`
         cursor: pointer;
 
         i{
-            font-size: 4em;
+            font-size: 2em;
         }
     }
 `;
