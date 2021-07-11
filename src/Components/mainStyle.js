@@ -322,6 +322,7 @@ export const Btn = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    height: 100%;
     p{  
         display: flex;
         flex-direction: row;
@@ -329,10 +330,19 @@ export const Btn = styled.div`
         align-items:center;
         border-radius: 50%;
         border:1.5px solid white;
-        width:40%;
-        height: 65%;
+        width:85px;
+        height: 85px;
         color:white;
         cursor: pointer;
+
+        @media (max-height:600px){
+            width:60px;
+            height: 60px;
+        }
+        @media (max-width:537px){
+            width:40px;
+            height: 40px;
+        }
 
         i{
             font-size: 2em;
@@ -342,10 +352,18 @@ export const Btn = styled.div`
 
 export const Bar  =styled.div`
     /* background-color: yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
 `;
 
 export const Current = styled.div`
-    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    color:white;
 `;
 
 

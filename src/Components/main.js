@@ -3,8 +3,23 @@ import {MainFrame,MainBack,Card,MainCntnt,Slide,SlideBlock,
     Nextbtn,Btn,Bar,Current,SlideCard,NavBar,NavBlank,
     BlankSpace,Detail,Test,Hbar,State,Name,Descrip,Tags} from './mainStyle';
 import MainContent from './Provider/providerContext';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import gsap from 'gsap';
-import right_arrow from '../images/arrow-right.png';
+import { LinearProgress } from '@material-ui/core';
+
+const BorderLinearProgress = withStyles((theme) => ({
+    root: {
+      height: 5,
+      borderRadius: 5,
+    },
+    colorPrimary: {
+      backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+    },
+    bar: {
+      borderRadius: 5,
+      backgroundColor: 'orange',
+    },
+}))(LinearProgress);
 
 const Main = () => {
     const db = useContext(MainContent); 
@@ -15,7 +30,7 @@ const Main = () => {
     const rot = Array(loc.length+2).fill(0);
     const active = db.active;
     let first = false;
-
+    console.log((active+1)/loc.length*100);
     useEffect(()=>{
         first = true;
         // console.log("hhh")
@@ -49,9 +64,12 @@ const Main = () => {
         var tm = gsap.timeline();
         tl.to(card,{duration:0,opacity:1})
         tc.to(".crd:first-child",{duration:0,opacity:0});
+        gsap.to(".num",{duration:.2,x:-10,opacity:0})
         tm.to(".drawUp",{duration:.3,opacity:0,y:-20,stagger:.1});
         tm.to(".drawUp",{duration:0,opacity:0,y:40});
         tm.to(".drawUp",{delay:.25,duration:.1,opacity:1,y:20,stagger:.1});
+        gsap.to(".num",{delay:.8,duration:0,x:20});
+        gsap.to(".num",{delay:1.2,duration:.3,opacity:1,x:-10})
         // gsap.to(".drawUpB",{delay:.8,duration:0,opacity:1});
 
         tl.to(card,{duration:.8, width:'100vw',height:'100vh',top:0,left:0,ease:"expo.inOut",borderRadius:0});
@@ -68,6 +86,7 @@ const Main = () => {
         },1080);
         // change();
         // db.changeActive();
+        
     }
 
     const change = () => {
@@ -151,8 +170,12 @@ const Main = () => {
                         <p ><i className="fas fa-angle-left"></i></p>
                         <p onClick = {FullWall}><i className="fas fa-angle-right"></i></p>
                     </Btn>
-                    <Bar></Bar>
-                    <Current></Current>
+                    <Bar>
+                        <BorderLinearProgress style={{color:"red"}} variant="determinate" value={(active+1)/loc.length*100} />
+                    </Bar>
+                    <Current>
+                        <p className="num">0{active+1}</p>
+                    </Current>
                 </Nextbtn>
             </MainCntnt>
             
